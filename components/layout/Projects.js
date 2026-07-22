@@ -465,17 +465,19 @@ export default function Projects() {
                 ))}
               </div>
 
-              {/* ===== زر الطلب ===== */}
-              <div className="mt-6 pt-6 border-t border-white/20">
-                <button className="w-full group relative overflow-hidden bg-[#0D9488] text-white hover:bg-[#14B8A6] px-8 py-3 rounded-full font-cairo-medium shadow-lg shadow-[#0D9488]/30 transition-all duration-300">
-                  <span className="relative z-10 flex items-center justify-center gap-2">
-                    <span>اطلب استشارة لمشروعك</span>
-                    <ArrowLeft className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
-                  </span>
-                  <span className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/20 to-transparent"></span>
-                </button>
-              </div>
-            </div>
+             {/* ===== زر الطلب ===== */}
+<div className="mt-6 pt-6 border-t border-white/20">
+  <a
+    href="#contact"
+    className="w-full group relative overflow-hidden bg-[#0D9488] text-white hover:bg-[#14B8A6] px-8 py-3 rounded-full font-cairo-medium shadow-lg shadow-[#0D9488]/30 transition-all duration-300 inline-flex items-center justify-center"
+  >
+    <span className="relative z-10 flex items-center justify-center gap-2">
+      <span>اطلب استشارة لمشروعك</span>
+      <ArrowLeft className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
+    </span>
+    <span className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/20 to-transparent"></span>
+  </a>
+</div></div>
           </div>
         </div>
       )}
