@@ -1,26 +1,153 @@
-@import "tailwindcss";
+/* ===== @import MUST BE FIRST ===== */
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800;900;1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&display=swap');
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/* ===== Tailwind Directives ===== */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+/* ===== Custom Utilities ===== */
+@layer utilities {
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  /* ===== خط Cairo ===== */
+  .font-cairo {
+    font-family: 'Cairo', sans-serif;
   }
-}
+  
+  .font-cairo-thin {
+    font-family: 'Cairo', sans-serif;
+    font-weight: 200;
+  }
+  
+  .font-cairo-light {
+    font-family: 'Cairo', sans-serif;
+    font-weight: 300;
+  }
+  
+  .font-cairo-regular {
+    font-family: 'Cairo', sans-serif;
+    font-weight: 400;
+  }
+  
+  .font-cairo-medium {
+    font-family: 'Cairo', sans-serif;
+    font-weight: 500;
+  }
+  
+  .font-cairo-semibold {
+    font-family: 'Cairo', sans-serif;
+    font-weight: 600;
+  }
+  
+  .font-cairo-bold {
+    font-family: 'Cairo', sans-serif;
+    font-weight: 700;
+  }
+  
+  .font-cairo-extrabold {
+    font-family: 'Cairo', sans-serif;
+    font-weight: 800;
+  }
+  
+  .font-cairo-black {
+    font-family: 'Cairo', sans-serif;
+    font-weight: 900;
+  }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  /* ===== خط Tajawal ===== */
+  .font-tajawal {
+    font-family: 'Tajawal', sans-serif;
+  }
+  
+  .font-tajawal-extralight {
+    font-family: 'Tajawal', sans-serif;
+    font-weight: 200;
+  }
+  
+  .font-tajawal-light {
+    font-family: 'Tajawal', sans-serif;
+    font-weight: 300;
+  }
+  
+  .font-tajawal-regular {
+    font-family: 'Tajawal', sans-serif;
+    font-weight: 400;
+  }
+  
+  .font-tajawal-medium {
+    font-family: 'Tajawal', sans-serif;
+    font-weight: 500;
+  }
+  
+  .font-tajawal-bold {
+    font-family: 'Tajawal', sans-serif;
+    font-weight: 700;
+  }
+  
+  .font-tajawal-extrabold {
+    font-family: 'Tajawal', sans-serif;
+    font-weight: 800;
+  }
+  
+  .font-tajawal-black {
+    font-family: 'Tajawal', sans-serif;
+    font-weight: 900;
+  }
+
+  /* ===== خط Aref Ruqaa ===== */
+  .font-aref-ruqaa {
+    font-family: var(--font-aref-ruqaa), 'Aref Ruqaa', serif;
+  }
+  
+  .font-aref-ruqaa-regular {
+    font-family: var(--font-aref-ruqaa), 'Aref Ruqaa', serif;
+    font-weight: 400;
+  }
+  
+  .font-aref-ruqaa-bold {
+    font-family: var(--font-aref-ruqaa), 'Aref Ruqaa', serif;
+    font-weight: 700;
+  }
+
+  /* ===== تأثيرات زجاجية ===== */
+  .glass {
+    @apply bg-white/10 backdrop-blur-xl border border-white/20 shadow-2xl;
+  }
+
+  .glass-glow {
+    @apply bg-white/5 backdrop-blur-2xl border border-white/15 
+           shadow-[0_25px_50px_rgba(0,0,0,0.3)] 
+           shadow-inner-[0_0_80px_rgba(255,255,255,0.05)];
+  }
+
+  .glass-glare {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .glass-glare::before {
+    content: '';
+    @apply absolute -top-1/2 -left-1/2 w-[200%] h-[200%] pointer-events-none;
+    background: linear-gradient(
+      45deg,
+      transparent 40%,
+      rgba(255, 255, 255, 0.05) 45%,
+      rgba(255, 255, 255, 0.2) 50%,
+      rgba(255, 255, 255, 0.05) 55%,
+      transparent 60%
+    );
+    animation: glare 8s infinite linear;
+  }
+
+  @keyframes glare {
+    0% { transform: translateX(-100%) rotate(25deg); }
+    100% { transform: translateX(100%) rotate(25deg); }
+  }
+
+  .text-gradient {
+    @apply bg-gradient-to-r from-blue-400 to-cyan-300 
+           bg-clip-text text-transparent;
+  }
 }
